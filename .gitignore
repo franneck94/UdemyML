@@ -1,3 +1,16 @@
+*.pptx
+*.txt
+*.png
+
+data/
+logs/
+models/
+.vscode/
+settings.json
+launch.json
+tasks.json
+.benchmarks/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
