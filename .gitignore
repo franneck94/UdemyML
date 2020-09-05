@@ -4,6 +4,7 @@
 *.pptx
 .mypy_cache/
 .vscode/
+Chapter1_Introduction/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
