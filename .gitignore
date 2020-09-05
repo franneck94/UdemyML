@@ -2,6 +2,7 @@
 *.txt
 *.png
 *.pptx
+*.pdf
 .mypy_cache/
 .vscode/
 Chapter1_Introduction/
