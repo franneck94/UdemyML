@@ -7,16 +7,16 @@ def divide_on_feature(X, feature_i, threshold):
     """ Divide dataset based on if sample value on feature index is larger than
         the given threshold.
     """
-    split_func = lambda sample: sample[feature_i] >= threshold
+    def split_func(sample): return sample[feature_i] >= threshold
     X_1 = np.array([sample for sample in X if split_func(sample)])
     X_2 = np.array([sample for sample in X if not split_func(sample)])
     return np.array([X_1, X_2])
 
 
 def calculate_entropy(y):
-    log2 = lambda x: math.log(x) / math.log(2)
+    def log2(x): return math.log(x) / math.log(2)
     unique_labels = np.unique(y)
-    entropy = 0
+    entropy = 0.0
     for label in unique_labels:
         count = len(y[y == label])
         p = count / len(y)
@@ -60,6 +60,7 @@ class DecisionNode():
     false_branch: DecisionNode
         Next decision node for samples where features value did not meet the threshold.
     """
+
     def __init__(self, feature_i=None, threshold=None,
                  value=None, true_branch=None, false_branch=None):
         self.feature_i = feature_i          # Index for the feature that is tested
@@ -72,7 +73,7 @@ class DecisionNode():
 # Super class of RegressionTree and ClassificationTree
 class ClassificationTree(object):
     """Class of ClassificationTree.
-    
+
     Parameters:
     -----------
     min_samples_split: int
@@ -82,6 +83,7 @@ class ClassificationTree(object):
     max_depth: int
         The maximum depth of a tree.
     """
+
     def __init__(self, min_samples_split=2, min_impurity=1e-7, max_depth=float("inf")):
         self.root = None
         self.min_samples_split = min_samples_split
@@ -96,8 +98,8 @@ class ClassificationTree(object):
         """ Recursive method which builds out the decision tree and splits X and respective y
         on the feature of X which (based on impurity) best separates the data"""
         largest_impurity = 0
-        best_criteria = None    # Feature index and threshold
-        best_sets = None        # Subsets of the data
+        best_criteria = {}    # Feature index and threshold
+        best_sets = {}        # Subsets of the data
 
         # Add y as last column of X
         Xy = np.concatenate((X, y), axis=1)
@@ -134,7 +136,7 @@ class ClassificationTree(object):
                                 "lefty": Xy1[:, n_features:],   # y of left subtree
                                 "rightX": Xy2[:, :n_features],  # X of right subtree
                                 "righty": Xy2[:, n_features:]   # y of right subtree
-                                }
+                            }
 
         if largest_impurity > self.min_impurity:
             # Build subtrees for the right and left branches
@@ -146,7 +148,6 @@ class ClassificationTree(object):
         # We're at leaf => determine value
         leaf_value = majority_vote(y)
         return DecisionNode(value=leaf_value)
-
 
     def predict_value(self, x, tree=None):
         """ Do a recursive search down the tree and make a prediction of the data sample by the
@@ -180,7 +181,7 @@ class ClassificationTree(object):
 
         # If we're at leaf => print the label
         if tree.value is not None:
-            print (tree.value)
+            print(tree.value)
         # Go deeper down the tree
         else:
             # Print test
