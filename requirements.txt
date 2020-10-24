@@ -1,0 +1,20 @@
+# Libraries
+tensorflow
+keras
+scikit-learn
+seaborn
+scipy
+scikit-image
+numpy
+matplotlib
+pandas
+gym
+
+# Linting
+pylint
+flake8
+mypy
+isort
+black
+autopep8
+pre-commit

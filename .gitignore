@@ -6,6 +6,7 @@
 .mypy_cache/
 .vscode/
 Chapter1_Introduction/
+!requirements.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
