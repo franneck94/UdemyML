@@ -3,6 +3,7 @@
 *.png
 *.pptx
 *.pdf
+*.zip
 .mypy_cache/
 .vscode/
 Chapter1_Introduction/
