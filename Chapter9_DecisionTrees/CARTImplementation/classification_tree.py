@@ -3,18 +3,28 @@ import math
 import numpy as np
 
 
+def split_func(sample, feature_i, threshold):
+    return sample[feature_i] >= threshold
+
+
 def divide_on_feature(X, feature_i, threshold):
     """ Divide dataset based on if sample value on feature index is larger than
         the given threshold.
     """
-    def split_func(sample): return sample[feature_i] >= threshold
-    X_1 = np.array([sample for sample in X if split_func(sample)])
-    X_2 = np.array([sample for sample in X if not split_func(sample)])
+    X_1 = np.array(
+        [sample for sample in X if split_func(sample, feature_i, threshold)]
+    )
+    X_2 = np.array(
+        [sample for sample in X if not split_func(sample, feature_i, threshold)]
+    )
     return np.array([X_1, X_2])
 
 
+def log2(x):
+    return math.log(x) / math.log(2)
+
+
 def calculate_entropy(y):
-    def log2(x): return math.log(x) / math.log(2)
     unique_labels = np.unique(y)
     entropy = 0.0
     for label in unique_labels:
