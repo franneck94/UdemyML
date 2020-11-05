@@ -4,29 +4,12 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
-from scipy.stats import multivariate_normal
-import itertools
 
 colors = ["yellow", "purple"]
 
-def bivariate_normal(X, Y, sigmax=1.0, sigmay=1.0,
-                     mux=0.0, muy=0.0, sigmaxy=0.0):
-    """
-    Bivariate Gaussian distribution for equal shape *X*, *Y*.
-    See `bivariate normal
-    <http://mathworld.wolfram.com/BivariateNormalDistribution.html>`_
-    at mathworld.
-    """
-    Xmu = X-mux
-    Ymu = Y-muy
- 
-    rho = sigmaxy/(sigmax*sigmay)
-    z = Xmu**2/sigmax**2 + Ymu**2/sigmay**2 - 2*rho*Xmu*Ymu/(sigmax*sigmay)
-    denom = 2*np.pi*sigmax*sigmay*np.sqrt(1-rho**2)
-    return np.exp(-z/(2*(1-rho**2))) / denom
 
 def plot_results(X, Y, Y_, means, covariances, index, title):
-    fig = plt.figure(figsize=(12,12))
+    fig = plt.figure(figsize=(12, 12))
     splot = plt.subplot(2, 1, 1 + index)
     for i, (mean, covar) in enumerate(zip(
             means, covariances)):

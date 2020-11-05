@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn import svm, datasets
 
 
 def make_meshgrid(x, y, h=.02):
@@ -23,7 +22,7 @@ def make_meshgrid(x, y, h=.02):
     return xx, yy
 
 
-def plot_contours(plt, clf, x, y, **params):
+def plot_contours(ax, clf, x, y, **params):
     """Plot the decision boundaries for a classifier.
 
     Parameters
@@ -37,5 +36,5 @@ def plot_contours(plt, clf, x, y, **params):
     xx, yy = make_meshgrid(x, y, h=.02)
     Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
     Z = Z.reshape(xx.shape)
-    out = plt.contourf(xx, yy, Z, **params)
+    out = ax.contourf(xx, yy, Z, **params)
     return out
