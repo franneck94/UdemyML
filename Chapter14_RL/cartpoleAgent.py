@@ -44,9 +44,9 @@ class Agent:
     def get_action(self, state: np.ndarray):
         """Based on the state, get an action.
         """
-        state = state.reshape(1, -1) # [4,] => [1, 4]
+        state = state.reshape(1, -1)
         action = self.model(state).numpy()[0]
-        action = np.random.choice(self.actions, p=action) # choice([0, 1], [0.5044534  0.49554658])
+        action = np.random.choice(self.actions, p=action)
         return action
 
     def get_samples(self, num_episodes: int):
@@ -83,7 +83,7 @@ class Agent:
                 x_train.extend(observation)
                 y_train.extend(action)
         x_train = np.asarray(x_train)
-        y_train = to_categorical(y_train, num_classes=self.actions) # L = 0 => [1, 0]
+        y_train = to_categorical(y_train, num_classes=self.actions)
         return x_train, y_train, reward_bound
 
     def train(self, percentile, num_iterations, num_episodes):
