@@ -1,6 +1,5 @@
 import gym
 import numpy as np
-from numpy.lib.function_base import percentile
 from tensorflow.keras.layers import Activation
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.models import Sequential
@@ -33,5 +32,5 @@ class Agent:
 if __name__ == "__main__":
     env = gym.make("CartPole-v1")
     agent = Agent(env)
-    agent.train()
-    agent.play()
+    # agent.train()
+    # agent.play()

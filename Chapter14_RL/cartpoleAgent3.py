@@ -1,6 +1,5 @@
 import gym
 import numpy as np
-from numpy.lib.function_base import percentile
 from tensorflow.keras.layers import Activation
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.models import Sequential
