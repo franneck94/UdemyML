@@ -1,16 +1,18 @@
 # Libraries
-tensorflow
-keras
-scikit-learn
-seaborn
-scipy
-scikit-image
-numpy
-matplotlib
-pandas
-gym
+tensorflow==2.3.1
+scikit-learn==0.23.*
+seaborn==0.10.*
+scipy==1.4.*
+scikit-image==0.17.*
+numpy==1.18.*
+matplotlib==3.3.*
+pandas==1.1.*
+openpyxl==3.0.*
+opencv-python==4.4.*
+pygame==1.9.*
+gym==0.17.*
 
-# Linting
+# Linting/Tooling
 pylint
 flake8
 mypy
