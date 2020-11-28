@@ -1,8 +1,11 @@
 import os
 import pickle
 
-from flask import Flask, request, jsonify
 import numpy as np
+
+from flask import Flask
+from flask import jsonify
+from flask import request
 
 
 PATH = os.path.abspath(os.path.join(__file__, os.pardir))
