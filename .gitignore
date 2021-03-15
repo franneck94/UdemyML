@@ -1,8 +1,7 @@
-*.pptx
 *.txt
 *.png
-*.pptx
 *.pdf
+!MLGlossary.pdf
 *.zip
 .mypy_cache/
 .vscode/
