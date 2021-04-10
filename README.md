@@ -3,8 +3,8 @@
 Dies ist der Code zu meinem Udemy Kurs:
 *Machine Learning Komplettkurs mit Python inkl. AI Einführung* von Jan Schaffranek.
 
-Der aktuelle Rabatt-Code lautet: FRANNECK_MAR_2021.
-Rabatt-Link: [ML Kurs im Rabatt](https://www.udemy.com/course/machine-learning-grundlagen-mit-python-inkl-ai-einfuhrung/?couponCode=FRANNECK_MAR_2021)
+Der aktuelle Rabatt-Code lautet: FRANNECK_APR_2021.
+Rabatt-Link: [ML Kurs im Rabatt](https://www.udemy.com/course/machine-learning-grundlagen-mit-python-inkl-ai-einfuhrung/?couponCode=FRANNECK_APR_2021)
 
 ## Bewertungen von Kursteilnehmern
 
