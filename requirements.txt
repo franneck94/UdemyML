@@ -15,4 +15,4 @@ mypy
 isort
 autopep8
 pre-commit
-black
+black==21.4b0
