@@ -1,12 +1,30 @@
-*.txt
-*.png
+################################
+###########  FILES  ############
+################################
+# Ignore all
+*
+# Unignore all with extensions
+!*.*
+# Unignore all dirs
+!*/
+!.gitkeep
+!Makefile
+*.pptx
 *.pdf
-!MLGlossary.pdf
+*.isorted
 *.zip
-.mypy_cache/
-.vscode/
-Chapter1_Introduction/
-!requirements.txt
+
+################################
+########### FOLDERS ############
+################################
+build/
+html/
+.benchmarks/
+reports/
+
+################################
+########### PYTHON #############
+################################
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -112,3 +130,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+.mypy_cache*
+
+################################
+########### VS CODE ############
+################################
+.vscode
+*.code-workspace
+.history
