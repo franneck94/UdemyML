@@ -1,10 +1,9 @@
 # Libraries
 ipython
 ipykernel
-tensorflow==2.4.*
 scikit-learn
 scipy
-numpy==1.19.*
+numpy
 matplotlib
 pandas
 
@@ -15,4 +14,4 @@ mypy
 isort
 autopep8
 pre-commit
-black==21.4b0
+black
