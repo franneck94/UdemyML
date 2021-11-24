@@ -31,8 +31,7 @@ Mein Kurs bietet nicht nur eine Einführung in die Machine Learning Bibliothek 
 ☑️ Supervised Learning (Regression, SVM, Neuronale Netzwerke etc.)  
 ☑️ Unsupervised Learning (PCA, Clustering etc.)  
 ☑️ Metriken und Evaluierung  
-☑️ Einführung in das Deep Learning mit TensorFlow 2.4 und Keras  
-☑️ Einführung in das Reinforcement Learning (AI)  
+☑️ Einführung in das Deep Learning mit TensorFlow 2.7 und Keras  
 
 Werde noch heute ein Profi, in der Technologie von Morgen!
 Wir sehen uns im Kurs!
