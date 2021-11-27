@@ -21,3 +21,26 @@ def generate_dataset(num_class1: int = 50, num_class2: int = 50) -> Tuple[np.nda
         [1 for i in range(num_class2)]
     )
     return data, classes
+
+
+def cond(x: np.ndarray) -> np.ndarray:
+    return (
+        (np.abs(x[:, 0]) < 1.0) &
+        (np.abs(x[:, 1]) < 1.0)
+    )
+
+
+def filter_cond(x: np.ndarray) -> np.ndarray:
+    return (
+        ((np.abs(x[:, 0]) < 1.0) |
+         (np.abs(x[:, 0]) > 1.75)) &
+        ((np.abs(x[:, 1]) < 1.0) |
+         (np.abs(x[:, 1]) > 1.75))
+    )
+
+
+def generate_kernel_dataset() -> Tuple[np.ndarray, np.ndarray]:
+    x = np.random.multivariate_normal(mean=[0.0, 0.0], cov=np.diag([5.0, 4.0]), size=200)
+    x = x[filter_cond(x)]
+    y = cond(x).astype(np.float32)
+    return x, y
