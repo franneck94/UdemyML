@@ -10,7 +10,13 @@ colors = ["yellow", "purple"]
 
 
 def plot_results(
-    X: np.ndarray, Y: np.ndarray, Y_: np.ndarray, means: np.ndarray, covariances: np.ndarray, index: int, title: Any
+    X: np.ndarray,
+    Y: np.ndarray,
+    Y_: np.ndarray,
+    means: np.ndarray,
+    covariances: np.ndarray,
+    index: int,
+    title: Any
 ) -> None:
     _ = plt.figure(figsize=(12, 12))
     splot = plt.subplot(2, 1, 1 + index)
