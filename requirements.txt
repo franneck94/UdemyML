@@ -1,7 +1,7 @@
 # Libraries
 ipython
 ipykernel
-scikit-learn
+scikit-learn>=1.0
 scipy
 numpy
 matplotlib
