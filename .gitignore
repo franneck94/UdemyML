@@ -1,20 +1,9 @@
 ################################
 ###########  FILES  ############
 ################################
-# Ignore all
-*
-# Unignore all with extensions
-!*.*
-# Unignore all dirs
-!*/
-!.gitkeep
-!Makefile
+TODO*.*
 *.pptx
 *.pdf
-*.isorted
-*.zip
-TODO*.*
-!Lib/
 
 ################################
 ########### FOLDERS ############
@@ -23,6 +12,7 @@ build/
 html/
 .benchmarks/
 reports/
+lectures/
 
 ################################
 ########### PYTHON #############
@@ -133,6 +123,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 .mypy_cache*
+
+*.isorted
 
 ################################
 ########### VS CODE ############
