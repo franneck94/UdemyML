@@ -3,7 +3,7 @@ ipython
 ipykernel
 scikit-learn==1.0.*
 scipy
-numpy==1.23.*
+numpy
 matplotlib
 pandas
 
