@@ -1,10 +1,11 @@
 from typing import Any
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.colors import ListedColormap
 
-cmap_light = ListedColormap(['#FFAAAA', '#AAAAFF'])
+
+cmap_light = ListedColormap(["#FFAAAA", "#AAAAFF"])
 colors = np.array(["red", "blue"])
 
 
@@ -16,12 +17,13 @@ def plot_dataset(x: np.ndarray, y: np.ndarray) -> None:
 def make_meshgrid(x: np.ndarray, y: np.ndarray, h: float = 0.02) -> Any:
     x_min, x_max = x.min() - 1, x.max() + 1
     y_min, y_max = y.min() - 1, y.max() + 1
-    xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
-                         np.arange(y_min, y_max, h))
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
     return xx, yy
 
 
-def plot_contours(ax: Any, clf: Any, xx: np.ndarray, yy: np.ndarray, **params: Any) -> Any:
+def plot_contours(
+    ax: Any, clf: Any, xx: np.ndarray, yy: np.ndarray, **params: Any
+) -> Any:
     Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
     Z = Z.reshape(xx.shape)
     out = ax.contourf(xx, yy, Z, **params)

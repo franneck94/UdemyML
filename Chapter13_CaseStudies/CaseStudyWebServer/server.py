@@ -15,13 +15,13 @@ APP = Flask(__name__)
 MODEL = pickle.load(open(MODEL_PATH, "rb"))
 
 
-@APP.route('/api', methods=['POST'])
+@APP.route("/api", methods=["POST"])
 def predict():
     data = request.get_json(force=True)
-    pred = MODEL.predict([np.array(data['x'])])
+    pred = MODEL.predict([np.array(data["x"])])
     output = pred[0]
     return jsonify(output)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     APP.run(port=5000, debug=True)
