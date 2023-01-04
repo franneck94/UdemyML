@@ -1,5 +1,6 @@
 import os
 import pickle
+from typing import Any
 
 import numpy as np
 
@@ -16,7 +17,7 @@ MODEL = pickle.load(open(MODEL_PATH, "rb"))
 
 
 @APP.route("/api", methods=["POST"])
-def predict():
+def predict() -> Any:
     data = request.get_json(force=True)
     pred = MODEL.predict([np.array(data["x"])])
     output = pred[0]
