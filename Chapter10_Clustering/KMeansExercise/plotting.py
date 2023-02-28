@@ -32,10 +32,7 @@ def plot_contours(
 
 
 def plot(
-    x: np.ndarray,
-    y_pred: np.ndarray,
-    centroids: np.ndarray,
-    kmeans: np.ndarray,
+    x: np.ndarray, y_pred: np.ndarray, centroids: np.ndarray, kmeans: np.ndarray
 ) -> None:
     _, ax = plt.subplots()
     # Decision Border
