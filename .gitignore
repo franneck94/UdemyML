@@ -11,6 +11,8 @@ html/
 .benchmarks/
 reports/
 lectures/
+logs/
+models/
 
 ################################
 ########### PYTHON #############
