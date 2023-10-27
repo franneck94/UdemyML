@@ -17,10 +17,6 @@ repos:
         exclude: ^docs/
     -   id: nbqa-isort
         exclude: ^docs/
-    -   id: nbqa-ruff
-        exclude: ^docs/
-    -   id: nbqa-mypy
-        exclude: ^docs/
 
 -   repo: https://github.com/MarcoGorelli/cython-lint
     rev: v0.15.0

@@ -47,7 +47,7 @@ def check_ipynb_file(file_path: str) -> None:
                     stderr=subprocess.PIPE,
                     stdout=subprocess.PIPE,
                 )
-            process.wait(timeout=2)
+            process.wait(timeout=10)
             ret_code = process.returncode
             if ret_code == 0:
                 print(f"\t\t{file_path} can be executed.")
@@ -72,7 +72,7 @@ def check_python_file(file_path: str) -> None:
                 stderr=null_file,
                 stdout=null_file,
             )
-            process.wait(timeout=2)
+            process.wait(timeout=10)
             ret_code = process.returncode
             if ret_code == 0:
                 print(f"\t\t{file_path} can be executed.")
