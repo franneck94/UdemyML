@@ -1,6 +1,8 @@
 import os
 import subprocess
 
+import nbconvert
+
 
 directory = "."
 
@@ -31,6 +33,58 @@ def check_file_for_not_implemented(file_path: str) -> bool:
     return False
 
 
+def check_ipynb_file(file_path: str) -> None:
+    try:
+        exporter = nbconvert.PythonExporter()
+        (python_code, _) = exporter.from_filename(file_path)
+
+        with open("temp_script.py", "w") as temp_script:
+            temp_script.write(python_code)
+
+            with open(os.devnull, "w"):
+                process = subprocess.Popen(
+                    ["python", "temp_script.py"],
+                    stderr=subprocess.PIPE,
+                    stdout=subprocess.PIPE,
+                )
+            process.wait(timeout=2)
+            ret_code = process.returncode
+            if ret_code == 0:
+                print(f"\t\t{file_path} can be executed.")
+            else:
+                print(f"\t\t!!! {file_path} code {ret_code} !!!")
+    except subprocess.TimeoutExpired:
+        process.terminate()  # pyright: ignore
+        print(f"\t\t{file_path} can be executed (interrupted).")
+    except subprocess.CalledProcessError:
+        print(f"\t\t!!! {file_path} cannot be executed !!!")
+
+
+def check_python_file(file_path: str) -> None:
+    try:
+        if check_file_for_not_implemented(file_path):
+            print(rf"\File: {file_path} has unfinished code")
+            return
+        print(f"\tRunning file: {file_path}")
+        with open(os.devnull, "w") as null_file:
+            process = subprocess.Popen(
+                ["python", file_path],
+                stderr=null_file,
+                stdout=null_file,
+            )
+            process.wait(timeout=2)
+            ret_code = process.returncode
+            if ret_code == 0:
+                print(f"\t\t{file_path} can be executed.")
+            else:
+                print(f"\t\t!!! {file_path} code {ret_code} !!!")
+    except subprocess.TimeoutExpired:
+        process.terminate()  # pyright: ignore
+        print(f"\t\t{file_path} can be executed (interrupted).")
+    except subprocess.CalledProcessError:
+        print(f"\t\t!!! {file_path} cannot be executed !!!")
+
+
 def main() -> None:
     for root, _, files in os.walk(directory, topdown=True):
         if should_exclude_directory(os.path.basename(root)):
@@ -39,35 +93,13 @@ def main() -> None:
         if num_py_files > 0:
             print(f"dir: {root}, number of python files: {num_py_files}")
         for filename in files:
-            if (
-                filename.endswith(".py")
-                and "exercise.py" not in filename.lower()
-            ):
-                file_path = os.path.join(root, filename)
-                if "checker" in file_path:
-                    continue
-                try:
-                    if check_file_for_not_implemented(file_path):
-                        print(rf"\File: {file_path} has unfinished code")
-                        continue
-                    print(f"\tRunning file: {file_path}")
-                    with open(os.devnull, "w") as null_file:
-                        process = subprocess.Popen(
-                            ["python", file_path],
-                            stderr=null_file,
-                            stdout=null_file,
-                        )
-                        process.wait(timeout=2)
-                        ret_code = process.returncode
-                        if ret_code == 0:
-                            print(f"\t\t{file_path} can be executed.")
-                        else:
-                            print(f"\t\t!!! {file_path} code {ret_code} !!!")
-                except subprocess.TimeoutExpired:
-                    process.terminate()  # pyright: ignore
-                    print(f"\t\t{file_path} can be executed (interrupted).")
-                except subprocess.CalledProcessError:
-                    print(f"\t\t!!! {file_path} cannot be executed !!!")
+            file_path = os.path.join(root, filename)
+            if "checker" in file_path:
+                continue
+            if file_path.endswith(".py"):
+                check_python_file(file_path)
+            if file_path.endswith(".ipynb"):
+                check_ipynb_file(file_path)
 
 
 if __name__ == "__main__":
