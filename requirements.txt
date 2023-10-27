@@ -1,18 +1,17 @@
 # Libraries
-ipython
-ipykernel
-scikit-learn>=1.2.*
-scipy>=1.3.*
-numpy>=1.20.*
-matplotlib
-pandas
-threadpoolctl
+ipython>=8.15.*
+ipykernel>=6.25.*
+threadpoolctl>=3.2.*
+scikit-learn==1.3.*
+scipy==1.11.*
+numpy==1.26.*
+matplotlib==3.8.*
+pandas==2.0.*
 
 # Linting/Tooling
-pylint
-flake8
-mypy
-isort
-autopep8
-pre-commit
-black
+black>=23.10.1
+isort>=5.12.0
+mypy>=1.6.1
+pre-commit>=3.5.0
+ruff>=0.1.2
+pyright>=1.1.333

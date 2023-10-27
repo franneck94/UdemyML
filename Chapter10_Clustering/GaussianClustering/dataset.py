@@ -1,5 +1,3 @@
-from typing import Tuple
-
 import numpy as np
 
 
@@ -8,7 +6,7 @@ np.random.seed(42)
 
 def generate_dataset(
     num_class_1: int = 50, num_class_2: int = 50
-) -> Tuple[np.ndarray, np.ndarray]:
+) -> tuple[np.ndarray, np.ndarray]:
     cov_1 = np.array([[1, 0], [0, 2]])
     mean_1 = np.array([0, 0])
     cov_2 = np.array([[2, 0], [0, 1]])

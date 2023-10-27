@@ -1,5 +1,4 @@
 from typing import Any
-from typing import Tuple
 
 import numpy as np
 
@@ -15,7 +14,7 @@ cmap_light = ListedColormap(["#FFAAAA", "#AAAAFF", "#AAFFAA"])
 
 def make_meshgrid(
     x: np.ndarray, y: np.ndarray, h: float = 0.02
-) -> Tuple[np.ndarray, np.ndarray]:
+) -> tuple[np.ndarray, np.ndarray]:
     x_min, x_max = x.min() - 1, x.max() + 1
     y_min, y_max = y.min() - 1, y.max() + 1
     xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
