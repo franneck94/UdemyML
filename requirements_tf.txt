@@ -1,0 +1,3 @@
+tensorflow==2.14.*
+tensorflow-macos==2.14.*; platform_system == "Darwin"
+keras==2.14.*
