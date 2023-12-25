@@ -26,8 +26,7 @@ def plot_contours(
 ) -> Any:
     Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
     Z = Z.reshape(xx.shape)
-    out = ax.contourf(xx, yy, Z, **params)
-    return out
+    return ax.contourf(xx, yy, Z, **params)
 
 
 def plot(
