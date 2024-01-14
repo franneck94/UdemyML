@@ -1,14 +1,12 @@
 from typing import Any
 
-import numpy as np
-
-
-np.random.seed(42)
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.colors import ListedColormap
 from sklearn.cluster import KMeans
 
 
+np.random.seed(42)
 cmap_light = ListedColormap(["#FFAAAA", "#AAAAFF", "#AAFFAA"])
 
 
@@ -24,8 +22,8 @@ def make_meshgrid(
 def plot_contours(
     ax: plt.Axes, clf: KMeans, xx: np.ndarray, yy: np.ndarray, **params: Any
 ) -> Any:
-    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
-    Z = Z.reshape(xx.shape)
+    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])  # noqa: N806
+    Z = Z.reshape(xx.shape)  # noqa: N806
     return ax.contourf(xx, yy, Z, **params)
 
 
@@ -34,7 +32,7 @@ def plot(
 ) -> None:
     _, ax = plt.subplots()
     # Decision Border
-    X0, X1 = x[:, 0], x[:, 1]
+    X0, X1 = x[:, 0], x[:, 1]  # noqa: N806
     xx, yy = make_meshgrid(X0, X1)
     plot_contours(ax, kmeans, xx, yy, cmap=cmap_light, alpha=0.8)
 

@@ -8,9 +8,9 @@ colors = ["yellow", "purple"]
 
 
 def plot_results(
-    X: np.ndarray,
-    Y: np.ndarray,
-    Y_: np.ndarray,
+    X: np.ndarray,  # noqa: N803
+    Y: np.ndarray,  # noqa: ARG001, N803
+    Y_: np.ndarray,  # noqa: N803
     means: np.ndarray,
     covariances: np.ndarray,
     index: int,
