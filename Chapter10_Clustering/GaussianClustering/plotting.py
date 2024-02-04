@@ -7,10 +7,10 @@ from scipy import linalg
 colors = ["yellow", "purple"]
 
 
-def plot_results(
-    X: np.ndarray,  # noqa: N803
-    Y: np.ndarray,  # noqa: ARG001, N803
-    Y_: np.ndarray,  # noqa: N803
+def plot_results(  # noqa: PLR0917
+    X: np.ndarray,
+    Y: np.ndarray,  # noqa: ARG001
+    Y_: np.ndarray,
     means: np.ndarray,
     covariances: np.ndarray,
     index: int,
@@ -18,16 +18,16 @@ def plot_results(
 ) -> None:
     _ = plt.figure(figsize=(12, 12))
     splot = plt.subplot(2, 1, 1 + index)
-    for i, (mean, covar) in enumerate(zip(means, covariances)):
+    for i, (mean, covar) in enumerate(zip(means, covariances, strict=False)):
         v, w = linalg.eigh(covar)
         v = 2.0 * np.sqrt(2.0) * np.sqrt(v)
         u = w[0] / linalg.norm(w[0])
         # as the DP will not use every component it has access to
         # unless it needs it, we shouldn't plot the redundant
         # components.
-        if not np.any(Y_ == i):
+        if not np.any(i == Y_):
             continue
-        plt.scatter(X[Y_ == i, 0], X[Y_ == i, 1], color=colors[i], s=20)
+        plt.scatter(X[i == Y_, 0], X[i == Y_, 1], color=colors[i], s=20)
 
         # Plot an ellipse to show the Gaussian component
         angle = np.arctan(u[1] / u[0])

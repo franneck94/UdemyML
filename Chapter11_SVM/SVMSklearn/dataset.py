@@ -21,12 +21,12 @@ def generate_dataset(
 
 
 def cond(x: np.ndarray) -> np.ndarray:
-    return (np.abs(x[:, 0]) < 1.0) & (np.abs(x[:, 1]) < 1.0)
+    return (np.abs(x[:, 0]) < 1.0) & (np.abs(x[:, 1]) < 1.0)  # noqa: PLR2004
 
 
 def filter_cond(x: np.ndarray) -> np.ndarray:
-    return ((np.abs(x[:, 0]) < 1.0) | (np.abs(x[:, 0]) > 1.75)) & (
-        (np.abs(x[:, 1]) < 1.0) | (np.abs(x[:, 1]) > 1.75)
+    return ((np.abs(x[:, 0]) < 1.0) | (np.abs(x[:, 0]) > 1.75)) & (  # noqa: PLR2004
+        (np.abs(x[:, 1]) < 1.0) | (np.abs(x[:, 1]) > 1.75)  # noqa: PLR2004
     )
 
 
