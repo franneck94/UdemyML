@@ -1,3 +1,4 @@
+# ruff: noqa: N803
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -7,9 +8,9 @@ from scipy import linalg
 colors = ["yellow", "purple"]
 
 
-def plot_results(  # noqa: PLR0917
+def plot_results(
     X: np.ndarray,
-    Y: np.ndarray,  # noqa: ARG001
+    Y: np.ndarray,
     Y_: np.ndarray,
     means: np.ndarray,
     covariances: np.ndarray,

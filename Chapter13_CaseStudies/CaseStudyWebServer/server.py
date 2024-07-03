@@ -12,7 +12,7 @@ PATH = os.path.abspath(os.path.join(__file__, os.pardir))
 MODEL_PATH = os.path.join(PATH, "model.pkl")
 
 APP = Flask(__name__)
-MODEL = pickle.load(open(MODEL_PATH, "rb"))  # noqa: SIM115
+MODEL = pickle.load(open(MODEL_PATH, "rb"))
 
 
 @APP.route("/api", methods=["POST"])
