@@ -22,7 +22,11 @@ def make_meshgrid(x: np.ndarray, y: np.ndarray, h: float = 0.02) -> Any:
 
 
 def plot_contours_(
-    ax: Any, clf: Any, xx: np.ndarray, yy: np.ndarray, **params: Any
+    ax: Any,
+    clf: Any,
+    xx: np.ndarray,
+    yy: np.ndarray,
+    **params: Any,
 ) -> Any:
     Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])  # noqa: N806
     Z = Z.reshape(xx.shape)  # noqa: N806

@@ -5,7 +5,8 @@ np.random.seed(42)
 
 
 def generate_dataset(
-    num_class1: int = 50, num_class2: int = 50
+    num_class1: int = 50,
+    num_class2: int = 50,
 ) -> tuple[np.ndarray, np.ndarray]:
     cov1 = np.array([[1, 0], [0, 2]])
     mean1 = np.array([0, 0])
@@ -15,7 +16,7 @@ def generate_dataset(
     data2 = np.random.multivariate_normal(mean2, cov2, num_class2)
     data = np.concatenate((data1, data2), axis=0)
     classes = np.array(
-        [0 for i in range(num_class1)] + [1 for i in range(num_class2)]
+        [0 for i in range(num_class1)] + [1 for i in range(num_class2)],
     )
     return data, classes
 
@@ -32,7 +33,9 @@ def filter_cond(x: np.ndarray) -> np.ndarray:
 
 def generate_kernel_dataset() -> tuple[np.ndarray, np.ndarray]:
     x = np.random.multivariate_normal(
-        mean=[0.0, 0.0], cov=np.diag([5.0, 4.0]), size=200
+        mean=[0.0, 0.0],
+        cov=np.diag([5.0, 4.0]),
+        size=200,
     )
     x = x[filter_cond(x)]
     y = cond(x).astype(np.float32)
