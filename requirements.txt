@@ -1,8 +1,8 @@
 # Libraries
 threadpoolctl
-scikit-learn
+scikit-learn==1.5.*
 scipy
-numpy
+numpy==2.0.*
 matplotlib
 pandas
 seaborn
